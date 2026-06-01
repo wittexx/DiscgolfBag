@@ -1,4 +1,4 @@
-<script lang<script lang="ts">
+<script lang="ts">
     import { api, setToken } from '$lib/api';
     import { goto } from '$app/navigation';
 

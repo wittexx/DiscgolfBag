@@ -38,7 +38,7 @@
     {#each discs as disc}
         <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
             {#if disc.imageUrl}
-                <img src="http://localhost:5000{disc.imageUrl}" alt={disc.name} width="150" />
+<img src="http://localhost:5167{disc.imageUrl}" alt={disc.name} width="150" />
             {/if}
             <h3>{disc.name}</h3>
             <p>{disc.manufacturer} - {disc.plastic}</p>

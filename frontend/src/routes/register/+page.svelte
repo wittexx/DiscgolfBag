@@ -8,7 +8,8 @@
     let displayName = $state('');
     let error = $state('');
 
-    async function handleRegister() {
+    async function handleRegister(e: Event) {
+        e.preventDefault();
         error = '';
 
         const res = await api('/api/auth/register', {
@@ -46,7 +47,7 @@
     <p style="color: red;">{error}</p>
 {/if}
 
-<form on:submit|preventDefault={handleRegister}>
+<form onsubmit={handleRegister}>
     <label>
         Username
         <input bind:value={username} required />
