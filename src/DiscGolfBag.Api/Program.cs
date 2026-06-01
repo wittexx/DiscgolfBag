@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using DiscGolfBag.Api.Common.Data;
 using DiscGolfBag.Api.Common.Models;
 using DiscGolfBag.Api.Features.Auth;
+using DiscGolfBag.Api.Features.Discs;
 
 
 
@@ -69,5 +70,8 @@ app.UseStaticFiles();
 app.MapMeEndpoint();
 app.MapRegisterEndpoint();
 app.MapLoginEndpoint();
+app.MapCreateDiscEndpoint();
+app.MapGetDiscsEndpoint();
+app.MapDeleteDiscEndpoint();
 
 app.Run();
