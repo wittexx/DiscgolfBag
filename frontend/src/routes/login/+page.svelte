@@ -25,22 +25,24 @@
     }
 </script>
 
-<h1>Login</h1>
+<div class="max-w-md mx-auto">
+	<h1 class="text-3xl font-bold text-cyan mb-6">Login</h1>
 
-{#if error}
-    <p style="color: red;">{error}</p>
-{/if}
+	{#if error}
+		<p class="bg-red-500/20 text-red-400 p-3 rounded mb-4">{error}</p>
+	{/if}
 
-<form onsubmit={handleLogin}>
-    <label>
-        Username
-        <input bind:value={username} required />
-    </label>
-    <label>
-        Password
-        <input type="password" bind:value={password} required />
-    </label>
-    <button type="submit">Login</button>
-</form>
+	<form onsubmit={handleLogin} class="space-y-4">
+		<div>
+			<label class="block text-sm text-silver mb-1">Username</label>
+			<input bind:value={username} required class="w-full p-3 rounded bg-dark-light border border-teal/30 text-silver focus:border-cyan focus:outline-none" />
+		</div>
+		<div>
+			<label class="block text-sm text-silver mb-1">Password</label>
+			<input type="password" bind:value={password} required class="w-full p-3 rounded bg-dark-light border border-teal/30 text-silver focus:border-cyan focus:outline-none" />
+		</div>
+		<button type="submit" class="w-full bg-cyan text-dark font-medium py-3 rounded hover:bg-teal transition">Login</button>
+	</form>
 
-<p>Don't have an account? <a href="/register">Register</a></p>
+	<p class="mt-4 text-silver">Don't have an account? <a href="/register" class="text-cyan hover:text-teal">Register</a></p>
+</div>
