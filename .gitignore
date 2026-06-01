@@ -1,0 +1,32 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+
+# SQLite
+*.db
+*.db-shm
+*.db-wal
+
+# Uploaded images
+wwwroot/uploads/
+
+# Node / SvelteKit
+node_modules/
+.svelte-kit/
+build/
+dist/
+
+# Environment files
+.env
+.env.*
+appsettings.Development.json
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
