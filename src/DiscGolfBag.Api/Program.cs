@@ -7,6 +7,8 @@ using DiscGolfBag.Api.Common.Data;
 using DiscGolfBag.Api.Common.Models;
 using DiscGolfBag.Api.Features.Auth;
 using DiscGolfBag.Api.Features.Discs;
+using DiscGolfBag.Api.Features.Friends;
+using DiscGolfBag.Api.Features.Profiles;
 
 
 
@@ -78,5 +80,11 @@ app.MapLoginEndpoint();
 app.MapCreateDiscEndpoint();
 app.MapGetDiscsEndpoint();
 app.MapDeleteDiscEndpoint();
+app.MapSendRequestEndpoint();
+app.MapAcceptRequestEndpoint();
+app.MapDeclineRequestEndpoint();
+app.MapGetFriendsEndpoint();
+app.MapGetRequestsEndpoint();
+app.MapGetProfileEndpoint();
 
 app.Run();

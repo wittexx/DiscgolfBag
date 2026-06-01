@@ -16,6 +16,12 @@ public static class GetDiscs
             var discs = await db.Discs
                 .Where(d => d.OwnerId == userId)
                 .OrderByDescending(d => d.CreatedAt)
+                .Select(d => new
+                {
+                    d.Id, d.Name, d.Manufacturer, d.Plastic, d.Type,
+                    d.Speed, d.Glide, d.Turn, d.Fade,
+                    d.Weight, d.Color, d.ImageUrl, d.CreatedAt
+                })
                 .ToListAsync();
 
             return Results.Ok(discs);
