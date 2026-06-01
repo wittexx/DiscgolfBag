@@ -43,7 +43,7 @@
 				{#if disc.imageUrl}
 					<img src="http://localhost:5167{disc.imageUrl}" alt={disc.name} class="w-full h-48 object-cover" />
 				{:else}
-					<div class="w-full h-48 bg-dark flex items-center justify-center text-4xl">🥏</div>
+					<div class="w-full h-48 bg-dark flex items-center justify-center text-4xl"></div>
 				{/if}
 				<div class="p-4">
 					<h3 class="text-lg font-bold text-cyan">{disc.name}</h3>

@@ -35,7 +35,7 @@
 
 <div class="min-h-screen bg-dark text-silver">
 	<nav class="flex items-center gap-6 px-6 py-4 bg-dark-light shadow-lg border-b border-teal/20">
-		<a href="/" class="text-xl font-bold text-cyan">🥏 DiscGolf Bag</a>
+		<a href="/" class="text-xl font-bold text-cyan">The DiscGolf Bag</a>
 		{#if loggedIn}
 			<a href="/dashboard" class="hover:text-cyan transition">My Bag</a>
 			<a href="/friends" class="hover:text-cyan transition">Friends</a>

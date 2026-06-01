@@ -1,5 +1,5 @@
 <div class="text-center py-20">
-	<h1 class="text-5xl font-bold mb-4 text-cyan">🥏 DiscGolf Bag</h1>
+	<h1 class="text-5xl font-bold mb-4 text-cyan">The DiscGolf Bag</h1>
 	<p class="text-xl text-silver mb-8">Track your discs, share your bag, connect with friends.</p>
 
 	<div class="flex justify-center gap-4">
