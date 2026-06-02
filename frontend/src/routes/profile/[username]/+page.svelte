@@ -39,6 +39,9 @@
 				<div class="p-4">
 					<h3 class="text-lg font-bold text-cyan">{disc.name}</h3>
 					<p class="text-silver text-sm">{disc.manufacturer} • {disc.plastic}</p>
+				{#if disc.description}
+					<p class="text-silver text-sm mt-2">{disc.description}</p>
+				{/if}
 					<div class="flex gap-3 mt-2 text-sm">
 						<span class="bg-teal/20 text-teal px-2 py-1 rounded">S{disc.speed}</span>
 						<span class="bg-teal/20 text-teal px-2 py-1 rounded">G{disc.glide}</span>

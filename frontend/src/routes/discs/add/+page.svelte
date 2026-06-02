@@ -13,6 +13,7 @@
     let fade = $state(0);
     let weight = $state(0);
     let color = $state('');
+    let description = $state('');
     let image: File | null = $state(null);
     let error = $state('');
 
@@ -40,6 +41,7 @@
         formData.append('fade', fade.toString());
         formData.append('weight', weight.toString());
         formData.append('color', color);
+        formData.append('description', description);
         if (image) formData.append('image', image);
 
         const res = await api('/api/discs', {
@@ -114,6 +116,10 @@
 				<label class="block text-sm text-silver mb-1">Color</label>
 				<input bind:value={color} class="w-full p-3 rounded bg-dark-light border border-teal/30 text-silver focus:border-cyan focus:outline-none" />
 			</div>
+		</div>
+		<div>
+			<label class="block text-sm text-silver mb-1">Description</label>
+			<textarea bind:value={description} rows="4" class="w-full p-3 rounded bg-dark-light border border-teal/30 text-silver focus:border-cyan focus:outline-none"></textarea>
 		</div>
 		<div>
 			<label class="block text-sm text-silver mb-1">Image</label>

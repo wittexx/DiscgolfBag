@@ -35,7 +35,8 @@ public static class CreateDisc
                 Turn = double.Parse(form["turn"].ToString()),
                 Fade = double.Parse(form["fade"].ToString()),
                 Weight = int.TryParse(form["weight"].ToString(), out var w) ? w : null,
-                Color = form["color"].ToString()
+                Color = form["color"].ToString(),
+                Description = form["description"].ToString()
             };
 
             

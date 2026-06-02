@@ -20,7 +20,7 @@ public static class GetDiscs
                 {
                     d.Id, d.Name, d.Manufacturer, d.Plastic, d.Type,
                     d.Speed, d.Glide, d.Turn, d.Fade,
-                    d.Weight, d.Color, d.ImageUrl, d.CreatedAt
+                    d.Weight, d.Color, d.Description, d.ImageUrl, d.CreatedAt
                 })
                 .ToListAsync();
 

@@ -33,7 +33,7 @@ public static class GetProfile
                 {
                     d.Id, d.Name, d.Manufacturer, d.Plastic, d.Type,
                     d.Speed, d.Glide, d.Turn, d.Fade,
-                    d.Weight, d.Color, d.ImageUrl
+                    d.Weight, d.Color, d.Description, d.ImageUrl
                 })
                 .ToListAsync();
 
