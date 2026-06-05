@@ -4,6 +4,7 @@
     import { onMount } from 'svelte';
 
     let discs = $state<any[]>([]);
+    let stats = $state<any>(null);
     let error = $state('');
 
     onMount(async () => {
@@ -15,19 +16,56 @@
     });
 
     async function loadDiscs() {
-        const res = await api('/api/discs');
-        if (res.ok) {
-            discs = await res.json();
-        }
+        const [discsRes, statsRes] = await Promise.all([
+            api('/api/discs'),
+            api('/api/discs/stats')
+        ]);
+        if (discsRes.ok) discs = await discsRes.json();
+        if (statsRes.ok) stats = await statsRes.json();
     }
 
     async function deleteDisc(id: number) {
         const res = await api(`/api/discs/${id}`, { method: 'DELETE' });
         if (res.ok) {
-            discs = discs.filter(d => d.id !== id);
+            await loadDiscs();
         }
     }
 </script>
+
+{#if stats && stats.totalDiscs > 0}
+<div class="bg-dark-light rounded-lg border border-teal/20 p-5 mb-6">
+	<h2 class="text-lg font-bold text-silver mb-3">Bag Analysis</h2>
+	<div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4 text-center">
+		<div class="bg-dark rounded p-3">
+			<p class="text-2xl font-bold text-cyan">{stats.putters}</p>
+			<p class="text-xs text-silver">Putters</p>
+		</div>
+		<div class="bg-dark rounded p-3">
+			<p class="text-2xl font-bold text-cyan">{stats.midranges}</p>
+			<p class="text-xs text-silver">Midranges</p>
+		</div>
+		<div class="bg-dark rounded p-3">
+			<p class="text-2xl font-bold text-cyan">{stats.fairwayDrivers}</p>
+			<p class="text-xs text-silver">Fairways</p>
+		</div>
+		<div class="bg-dark rounded p-3">
+			<p class="text-2xl font-bold text-cyan">{stats.distanceDrivers}</p>
+			<p class="text-xs text-silver">Drivers</p>
+		</div>
+	</div>
+	<div class="flex flex-wrap gap-4 text-sm mb-3">
+		<span class="text-silver">Avg Speed: <span class="text-teal font-medium">{stats.averageSpeed}</span></span>
+		<span class="text-silver">Avg Turn: <span class="text-teal font-medium">{stats.averageTurn}</span></span>
+		<span class="text-silver">Avg Fade: <span class="text-teal font-medium">{stats.averageFade}</span></span>
+		<span class="text-silver">Stability: <span class="text-cyan font-medium">{stats.stability}</span></span>
+	</div>
+	<div class="space-y-1">
+		{#each stats.suggestions as tip}
+			<p class="text-sm text-teal">💡 {tip}</p>
+		{/each}
+	</div>
+</div>
+{/if}
 
 <div class="flex items-center justify-between mb-6">
 	<h1 class="text-3xl font-bold text-cyan">My Bag <span class="text-teal text-lg">({discs.length} / 45)</span></h1>

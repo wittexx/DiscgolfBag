@@ -81,6 +81,7 @@ app.MapRegisterEndpoint();
 app.MapLoginEndpoint();
 app.MapCreateDiscEndpoint();
 app.MapGetDiscsEndpoint();
+app.MapGetStatsEndpoint();
 app.MapDeleteDiscEndpoint();
 app.MapSendRequestEndpoint();
 app.MapAcceptRequestEndpoint();
