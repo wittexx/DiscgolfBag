@@ -9,6 +9,7 @@ using DiscGolfBag.Api.Features.Auth;
 using DiscGolfBag.Api.Features.Discs;
 using DiscGolfBag.Api.Features.Friends;
 using DiscGolfBag.Api.Features.Profiles;
+using Scalar.AspNetCore;
 
 
 
@@ -63,6 +64,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseCors();
